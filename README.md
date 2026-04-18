@@ -3,7 +3,7 @@
 ## INSTALL SCRIPT SESUAI LANGKAH
 1. Jalankan perintah berikut untuk persiapan instalasi:
 ```bash
-export DEBIAN_FRONTEND=noninteractive && rm -f /etc/resolv.conf && sed -i '/disable_ipv6/d' /etc/sysctl.conf && echo "nameserver 1.1.1.1" > /etc/resolv.conf && echo "nameserver 8.8.8.8" >> /etc/resolv.conf && echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf && sysctl -p && apt update -y && apt upgrade -y --fix-missing && apt install -y xxd bzip2 wget curl sudo lsof socat net-tools bc coreutils build-essential bsdmainutils screen dos2unix openvpn && update-grub && apt dist-upgrade -y
+export DEBIAN_FRONTEND=noninteractive && rm -f /etc/resolv.conf && touch /etc/sysctl.conf && sed -i '/disable_ipv6/d' /etc/sysctl.conf && echo "nameserver 1.1.1.1" > /etc/resolv.conf && echo "nameserver 8.8.8.8" >> /etc/resolv.conf && echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf && sysctl -p && apt update -y && apt upgrade -y --fix-missing && apt install -y xxd bzip2 wget curl sudo lsof socat net-tools bc coreutils build-essential bsdmainutils screen dos2unix openvpn && update-grub && apt dist-upgrade -y
 ```
 2. Jalankan perintah berikut untuk memulai instalasi:
 ```bash
@@ -154,19 +154,11 @@ Under Attack Mode      : OFF
 ## CONTACT & AUTHOR
 
 <p align="center">
-<a href="#"><img src="https://img.shields.io/badge/ABOUT%20SCRIPT-VPN%20AUTO-green?style=for-the-badge"></a>
+<a href="https://t.me/ARI_VPN_STORE"><img src="https://img.shields.io/badge/Telegram-Contact-blue?style=for-the-badge&logo=telegram"></a>
 </p>
 
 <p align="center">
-<a href="https://github.com/Mrz051"><img src="https://img.shields.io/badge/AUTHOR-PEYX-orange?style=for-the-badge&logo=github"></a>
-</p>
-
-<p align="center">
-<a href="https://t.me/peyyx"><img src="https://img.shields.io/badge/Telegram-Contact-blue?style=for-the-badge&logo=telegram"></a>
-</p>
-
-<p align="center">
-<a href="https://wa.me/6285647299390"><img src="https://img.shields.io/badge/WhatsApp-Contact-green?style=for-the-badge&logo=whatsapp"></a>
+<a href="wa.me/6281327393959"><img src="https://img.shields.io/badge/WhatsApp-Contact-green?style=for-the-badge&logo=whatsapp"></a>
 </p>
 ```
 
