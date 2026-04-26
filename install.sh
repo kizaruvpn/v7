@@ -105,6 +105,36 @@ echo "$REPO_IZIN" | sudo tee /etc/repo > /dev/null
 REPO_MENU="https://raw.githubusercontent.com/kizaruvpn/v7/main/"
 echo "$REPO_MENU" | sudo tee /etc/repo2 > /dev/null
 
+clear
+rm -f /usr/bin/user
+username=$(curl $(cat /etc/repo) | grep $MYIP | awk '{print $2}')
+echo "$username" >/usr/bin/user
+expx=$(curl $(cat /etc/repo) | grep $MYIP | awk '{print $3}')
+echo "$expx" >/usr/bin/e
+username=$(cat /usr/bin/user)
+#oid=$(cat /usr/bin/ver)
+exp=$(cat /usr/bin/e)
+clear
+d1=$(date -d "$valid" +%s)
+d2=$(date -d "$today" +%s)
+certifacate=$(((d1 - d2) / 86400))
+DATE=$(date +'%Y-%m-%d')
+datediff() {
+d1=$(date -d "$1" +%s)
+d2=$(date -d "$2" +%s)
+echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
+}
+mai="datediff "$Exp" "$DATE""
+Info="(${green}Active${NC})"
+Error="(${RED}ExpiRED${NC})"
+today=`date -d "0 days" +"%Y-%m-%d"`
+Exp1=$(curl https://raw.githubusercontent.com/arivpnstores/izin/main/ip | grep $MYIP | awk '{print $4}')
+if [[ $today < $Exp1 ]]; then
+sts="${Info}"
+else
+sts="${Error}"
+fi
+
 
 clear
 REPO="https://raw.githubusercontent.com/arivpnstores/v7/main/"
@@ -777,7 +807,7 @@ function menu(){
 clear
 print_install "Memasang Menu Packet"
 rm -f menu.zip
-wget ${REPO}/update.sh && chmod +x update.sh && ./update.sh
+wget $(cat /etc/repo2)update.sh && chmod +x update.sh && ./update.sh
 rm -rf menu menu.zip update.sh
 }
 function profile(){
