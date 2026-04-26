@@ -1,14 +1,5 @@
 #!/bin/bash
 clear
-# Nonaktifkan IPv6
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
-sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
-apt install sudo -y
-#UBAH REPO DI SINI  
-REPO_IZIN="https://raw.githubusercontent.com/kizaruvpn/izin/main/ip"
-echo "$REPO_IZIN" | sudo tee /etc/repo > /dev/null
-REPO_MENU="https://raw.githubusercontent.com/kizaruvpn/v7/main/"
-echo "$REPO_MENU" | sudo tee /etc/repo2 > /dev/null
 
 export DEBIAN_FRONTEND=noninteractive
 
