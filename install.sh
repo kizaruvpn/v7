@@ -777,7 +777,7 @@ function menu(){
 clear
 print_install "Memasang Menu Packet"
 rm -f menu.zip
-wget ${REPO}limit/update.sh && chmod +x update.sh && ./update.sh
+wget ${REPO}/update.sh && chmod +x update.sh && ./update.sh
 rm -rf menu menu.zip update.sh
 }
 function profile(){
