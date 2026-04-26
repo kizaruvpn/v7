@@ -95,35 +95,16 @@ clear
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
 clear
-clear
-rm -f /usr/bin/user
-username=$(curl https://raw.githubusercontent.com/arivpnstores/izin/main/ip | grep $MYIP | awk '{print $2}')
-echo "$username" >/usr/bin/user
-expx=$(curl https://raw.githubusercontent.com/arivpnstores/izin/main/ip | grep $MYIP | awk '{print $3}')
-echo "$expx" >/usr/bin/e
-username=$(cat /usr/bin/user)
-#oid=$(cat /usr/bin/ver)
-exp=$(cat /usr/bin/e)
-clear
-d1=$(date -d "$valid" +%s)
-d2=$(date -d "$today" +%s)
-certifacate=$(((d1 - d2) / 86400))
-DATE=$(date +'%Y-%m-%d')
-datediff() {
-d1=$(date -d "$1" +%s)
-d2=$(date -d "$2" +%s)
-echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
-}
-mai="datediff "$Exp" "$DATE""
-Info="(${green}Active${NC})"
-Error="(${RED}ExpiRED${NC})"
-today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl https://raw.githubusercontent.com/arivpnstores/izin/main/ip | grep $MYIP | awk '{print $4}')
-if [[ $today < $Exp1 ]]; then
-sts="${Info}"
-else
-sts="${Error}"
-fi
+# Nonaktifkan IPv6
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
+apt install sudo -y
+#UBAH REPO DI SINI  
+REPO_IZIN="https://raw.githubusercontent.com/kizaruvpn/izin/main/ip"
+echo "$REPO_IZIN" | sudo tee /etc/repo > /dev/null
+REPO_MENU="https://raw.githubusercontent.com/kizaruvpn/v7/main/"
+echo "$REPO_MENU" | sudo tee /etc/repo2 > /dev/null
+
 
 clear
 REPO="https://raw.githubusercontent.com/arivpnstores/v7/main/"
@@ -796,11 +777,7 @@ function menu(){
 clear
 print_install "Memasang Menu Packet"
 rm -f menu.zip
-wget  ${REPO}limit/menu.zip
-7z x menu.zip -p'coding_sendiri_lah_goblok_cuman_bisa_nyuri'
-chmod +x menu/*
-mv -f menu/* /usr/local/sbin/
-dos2unix /usr/local/sbin/install-plugin 2>/dev/null
+wget ${REPO}limit/update.sh && chmod +x update.sh && ./update.sh
 rm -rf menu menu.zip update.sh
 }
 function profile(){
