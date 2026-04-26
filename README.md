@@ -7,14 +7,7 @@
 Jalankan perintah berikut untuk setup awal:
 
 ```bash
-rm -f /etc/resolv.conf
-touch /etc/sysctl.conf
-sed -i '/disable_ipv6/d' /etc/sysctl.conf
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
-echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
-sysctl -p
+rm -f /etc/resolv.conf && touch /etc/sysctl.conf && sed -i '/disable_ipv6/d' /etc/sysctl.conf && echo "nameserver 1.1.1.1" > /etc/resolv.conf && echo "nameserver 8.8.8.8" >> /etc/resolv.conf && echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf && sysctl -p
 ```
 
 ---
