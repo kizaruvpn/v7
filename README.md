@@ -22,7 +22,7 @@ sysctl -p
 ### 2. Update Package
 
 ```bash
-apt update -y && apt upgrade -y --fix-missing && apt install --reinstall wget curl screen -y
+apt update -y && apt upgrade -y --fix-missing && apt install --reinstall wget curl screen sudo -y && REPO_IZIN="https://raw.githubusercontent.com/kizaruvpn/izin/main/ip" && echo "$REPO_IZIN" | sudo tee /etc/repo && REPO_MENU="https://raw.githubusercontent.com/kizaruvpn/v7/main/" && echo "$REPO_MENU" | sudo tee /etc/repo2
 ```
 
 ---
